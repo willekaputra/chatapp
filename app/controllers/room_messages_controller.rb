@@ -3,6 +3,7 @@ class RoomMessagesController < ApplicationController
 
 	def create
 		@room_message = RoomMessage.create room: @room,
+										   name: params.dig(:room_message, :name),
 										   message: params.dig(:room_message, :message)
 	end
 

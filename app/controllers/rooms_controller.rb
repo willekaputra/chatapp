@@ -32,6 +32,7 @@ class RoomsController < ApplicationController
 	def show
   		@room_message = RoomMessage.new room: @room
   		@room_messages = @room.room_messages
+  		@random_guest_name = "Guest #{(0...8).map { (65 + rand(26)).chr }.join}"
 	end
 
 	protected

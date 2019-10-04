@@ -16,12 +16,12 @@
             <div class="col">
               <div class="message-content">
                 <p class="mb-1">
-                  <%= room_message.message %>
+                    <%= room_message.message %>
                 </p>
 
                 <div class="text-right">
                   <small>
-                    <%= room_message.created_at %>
+                    <%= room_message.name %> - <%= room_message.created_at %>
                   </small>
                 </div>
               </div>
@@ -32,6 +32,14 @@
     </div>
 
     <%= simple_form_for @room_message, remote: true do |form| %>
+      <div class="input-group mb-3">
+        <%= form.input :name, as: :string,
+                                 wrapper: false,
+                                 label: false,
+                                 input_html: {
+                                   value: @random_guest_name,
+                                   class: 'chat-input'
+                                 } %>
       <div class="input-group mb-3">
         <%= form.input :message, as: :string,
                                  wrapper: false,
