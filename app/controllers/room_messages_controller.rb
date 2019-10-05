@@ -1,6 +1,5 @@
 class RoomMessagesController < ApplicationController
 	before_action :load_entities
-
 	def create
 		@room_message = RoomMessage.create room: @room,
 										   name: params.dig(:room_message, :name),
