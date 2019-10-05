@@ -54,5 +54,3 @@ gem 'jquery-rails'
 #simple form
 gem 'simple_form'
 
-gem 'redis'
-
