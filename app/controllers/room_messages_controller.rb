@@ -5,7 +5,10 @@ class RoomMessagesController < ApplicationController
 										   name: params.dig(:room_message, :name),
 										   message: params.dig(:room_message, :message)
 
-	    RoomChannel.broadcast_to @room, @room_message
+		if @room_message.save
+      				ActionCable.server.broadcast "room_channel",
+                                      	   content: @room_message  
+        end
 	end
 
 	protected
